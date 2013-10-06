@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>HTML5 javascript OpenX plug-in example</title>
+  <script src="html5videovastplugin.js"></script>
+</head>
+<body bgcolor="#424142">
+ <center>
+	<div>
+		<img src="vod/up_logo.png" alt="logo">
+	</div>
+	
+		<video id="example_video_1" src="vod/bbb_trailer.mp4" width = "640" height="480" controls  
+  ads = '    {  "servers": [
+                   {
+                       "apiAddress": "http://blog.denivip.ru/demos/html5videovastplugin/response.xml"
+                   }
+                ],
+                "schedule": [
+					{
+						"zone": "11",
+						"position": "pre-roll"
+                    },
+					{
+                       "zone": "11",
+                       "position": "mid-roll",
+					   "startTime": "00:00:08"
+                    },
+					{
+                       "zone": "11",
+                       "position": "mid-roll",
+					   "startTime": "00:01:00"
+                    },
+					{
+                       "zone": "11",
+                       "position": "post-roll"
+                    }
+				]
+        }' 	/>
+	
+    
+    
+</center>
+<script>initAdsFor("example_video_1");</script>
+	
+	
+
+</body>
+</html>

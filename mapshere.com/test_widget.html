@@ -1,0 +1,135 @@
+<!doctype html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, 
+			initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<link rel="stylesheet" 
+			href="http://api.maps.nokia.com/mobile/1.0.2/lib/mh5.css">
+		<link rel="stylesheet" 
+			href="http://api.maps.nokia.com/mobile/1.0.2/lib/colors.css">
+		<style>
+			.myheader {
+				height: 50px;
+				background-color: #002838;
+				color: #FFF;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="route" style="width: 320px; position: relative;"></div>
+		
+		<script src="http://api.maps.nokia.com/mobile/1.0.2/lib/mh5.js">
+		</script>
+		<script>
+			nokia.mh5.appId: "_peU-uCkp-j8ovkzFGNU";
+			nokia.mh5.appCode: "gBoUkAMoxoqIWfxWA5DuMQ";
+		
+			var route = new nokia.mh5.components.Route({
+				inputs: {
+				from: {
+					input: {
+				listeners: {
+					focus: function (e) { 
+						/* your listener */ 
+						},
+						blur: function (e) { 
+						/* your listener */ 
+						}
+					}
+				},
+				listeners: {
+					beforesearch: function (e) { 
+						/* your listener */ 
+					},
+					success: function (e) { 
+						/* your listener */ 
+					},
+					error: function (e) { 
+						/* your listener */ 
+					},
+					clear: function (e) { 
+						/* your listener */ 
+					}
+				},
+				parameters: {
+					center: {
+						longitude: 15.3,
+						latitude: 30.2
+					},
+					box: [{
+						longitude: 13.425679206848145,
+						latitude: 52.51183322974679
+					},{
+						longitude: 13.353581428527832,
+						latitude: 52.5213914417927
+					}],
+					position: {
+						longitude: 15.3,
+						latitude: 30.2
+					}
+				}
+			},
+			to: {
+				input: {
+					listeners: {
+						focus: function (e) { 
+							/* your listener */ 
+						},
+						blur: function (e) { 
+							/* your listener */ 
+						}
+					}
+				},
+				listeners: {
+					beforesearch: function (e) { 
+						/* your listener */ 
+					},
+					success: function (e) { 
+						/* your listener */ 
+					},
+					error: function (e) { 
+						/* your listener */ 
+					},
+					clear: function (e) { 
+						/* your listener */ 
+					}
+				},
+				parameters: {
+					center: {
+						longitude: 15.3,
+						latitude: 30.2
+					},
+					box: [{
+						longitude: 13.425679206848145,
+						latitude: 52.51183322974679
+					},{
+						longitude: 13.353581428527832,
+						latitude: 52.5213914417927
+					}],
+					position: {
+						longitude: 15.3,
+						latitude: 30.2
+					}
+				}
+			}
+		},
+		listeners: {
+			beforeroute: function(e) { 
+				/* your listener */ 
+			},
+			success: function(e) { 
+				/* your listener */ 
+			},
+			error: function(e) { 
+				/* your listener */ 
+			},
+			clear: function() { 
+				/* your listener */ 
+			}
+		}
+	});
+	
+	document.getElementById("route").appendChild(route.root);
+	</script>
+	</body>
+</html>

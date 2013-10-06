@@ -1,0 +1,23 @@
+<script src="jquery.js"></script>
+<script>
+	setInterval(
+   function(){
+   $.get("file-jam.php", function(Jam){
+            var xJam = Jam;            
+            var x = document.getElementById('tempat_jam');
+                  x.innerHTML = xJam;
+      });
+   },1000);
+   
+   var _menitLoad = 9;
+   var _menitLoad2=0;
+   var cekmenit = _menitLoad+"";
+if(cekmenit.length === 1)
+{
+	_menitLoad = "0" + _menitLoad;
+}
+
+//console.debug("hasil length =" + _menitLoad.length);
+console.debug("karakter 1 : " + _menitLoad);
+</script>
+<div id="tempat_jam"></div>

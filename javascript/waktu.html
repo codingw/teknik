@@ -1,0 +1,23 @@
+<form id="Form1" method="post" runat="server">
+ <div id="timeDiv">content</div>
+</form>
+
+
+<script type="text/javascript">
+<!--
+function displayTime()
+{
+ var currentDate = new Date();
+ var currentHour = currentDate.getHours();
+ var currentMinute = currentDate.getMinutes();
+ var currentSecond = currentDate.getSeconds();
+ document.getElementById('timeDiv').innerHTML = "" + currentHour + currentMinute + currentSecond;
+}
+
+
+window.onload = function ()
+{
+displayTime();
+}
+// -->
+</script>

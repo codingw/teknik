@@ -1,0 +1,31 @@
+<html>
+<head>
+	<style type="text/css">
+		
+	</style>
+	<script src="../submit/jquery.js" type="text/javascript"></script>
+	<script type="text/javascript">
+	$(document).ready(function() {
+		$('#car').click(function() {
+			$.getJSON('json.php',function(data){
+				$('#content').empty();
+				$.each(data, function(entryIndex, entry){
+					var html = '<div class="data">';					  
+					html += '<h3>' + entry['company'] + '</h3>';
+					html += '<div class="product">' + entry['product'] + '</div>';					
+					html += '<div class="type">' + entry['type'] + '</div>';										
+					$('#content').append(html);
+				});						   
+			});
+			return false;
+		});
+	});
+	</script>
+</head>
+<body>
+
+<a href="#" id="car">Car</a>
+<div id="content">
+</div>
+</body>
+</html>

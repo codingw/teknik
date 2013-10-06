@@ -1,0 +1,47 @@
+<script>
+	// GENERAL USED
+	var _gaq = _gaq || [];
+	var _lp6s = _lp6s || [];
+	_lp6s.push(['_setTrack', 'LP6-000001']);
+	_lp6s.push(['_setAction','load']);
+			
+	_gaq.push(['europa_video._setAccount', 'UA-32576937-2']);
+	_gaq.push(['europa_video._trackPageview']);
+
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	})();
+	function ga_track_player(url)
+	{
+		if (window._gaq)
+		{
+			_gaq.push(['europa_video._setAccount', 'UA-32576937-2']);
+			_gaq.push(['europa_video._trackPageview',url]);
+		}
+	}
+	//var sto = setTimeout(function(){ quizoner();},  5000);
+	function my_slp6(title)
+	{
+		// internal count
+		if (window._lp6s)
+		{
+			var _lp6s = _lp6s || [];
+			_lp6s.push(['_setTrack', 'LP6-000001']);
+			_lp6s.push(['_setAction','load']);
+			_lp6s.push(['_setLabel',title]);
+			(function() {
+			  var lp6 = document.createElement('script');
+			  lp6.type = 'text/javascript';
+			  lp6.async = true;
+			  lp6.src = 'http://stats.liputan6.com/lp6stats.js';
+			  var s = document.getElementsByTagName('script')[0];
+			  s.parentNode.insertBefore(lp6, s);
+			})();
+		}
+		// internal count
+	}
+</script>
+
+<a href="#" onclick="my_ga('title');my_slp6('title');">link</a>

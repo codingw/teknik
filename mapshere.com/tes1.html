@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=EmulateIE10;"/>
+	<base href="http://developer.here.com/apiexplorer/examples/api-for-js/places/detailed_results_search.html" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="description" content="Using a search box in combination with a result list and a place widget to provide detailed resultse"/>
+	<meta name="keywords" content="Search for Places, Search for Addresses, Display results, Display Addresses, Place, Places API"/>
+	<title>Nokia Maps API Example: Search and detailed results</title>
+	<script src="http://api.maps.nokia.com/2.2.4/jsl.js?with=places" type="text/javascript" charset="utf-8"></script>
+	<style type="text/css">
+		@font-face {
+			font-family: 'NokiaPureTextLight';
+			src: url('../../res/../../font/nokiapuretextlight-webfont.eot');
+			src: url('../../res/../../font/nokiapuretextlight-webfont.eot?#iefix') format('eot'),
+				url('../../res/../../font/nokiapuretextlight-webfont.woff') format('woff'),
+				url('../../res/../../font/nokiapuretextlight-webfont.ttf') format('truetype'),
+				url('../../res/../../font/nokiapuretextlight-webfont.svg#webfontC3amkkTh') format('svg');
+			font-weight: normal;
+			font-style: normal;
+		}
+		body {
+			background-color:#FFFFFF;
+			font-family: 'NokiaPureTextLight';
+		}
+		.nokia-places-general-resultlist .nokia-place-name{
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	
+	<table cellspacing="2" height="300px">
+		<tr>
+			<td valign="top">
+				<div id="searchBox"></div>
+				<div id="resultList"></div>
+			</td>
+			<td valign="top">
+				<div id="placeWidget"></div>
+			</td>
+		</tr>
+	</table>
+<script type="text/javascript" id="exampleJsSource">
+	nokia.Settings.set("appId", "_peU-uCkp-j8ovkzFGNU"); 
+	nokia.Settings.set("authenticationToken", "gBoUkAMoxoqIWfxWA5DuMQ");
+		
+	var placeWidget = new nokia.places.widgets.Place({
+		targetNode: "placeWidget",
+		template: "nokia.general.place"
+	});
+
+	
+	var resultList = new nokia.places.widgets.ResultList({
+		targetNode: "resultList",
+		perPage:5,
+		events:[
+		{
+			rel: "nokia-place-name",
+			name: "click",
+			handler: function (data) {
+				placeWidget.setPlace({href:data.href});
+			}
+		}]
+	});
+	
+	var searchBox = new nokia.places.widgets.SearchBox({
+		targetNode: "searchBox",
+		searchCenter: function () {
+			return {
+				latitude: 52.516274,
+				longitude: 13.377678
+			};
+		},
+		onResults: function (data) {
+			// Use result list to render results
+			resultList.setData(data);
+		}
+	});
+</script>
+</body>
+</html>
